@@ -1,0 +1,362 @@
+{
+    "name": "mtasa-lua",
+    "displayName": "MTA:SA Lua",
+    "description": "MTA:SA Lua Syntax Highlighting + Companion",
+    "version": "2.3.6",
+    "publisher": "subtixx",
+    "license": "GPL v3.0",
+    "icon": "images/logo.png",
+    "badges": [
+        {
+            "url": "https://img.shields.io/maintenance/yes/2019.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Maintenance Status"
+        },
+        {
+            "url": "https://img.shields.io/vscode-marketplace/v/subtixx.mtasa-lua.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Newest Version"
+        },
+        {
+            "url": "https://img.shields.io/vscode-marketplace/d/subtixx.mtasa-lua.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Downloads"
+        }
+    ],
+    "galleryBanner": {
+        "color": "#C80000",
+        "theme": "dark"
+    },
+    "homepage": "https://github.com/Subtixx/vscode-mtalua/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/Subtixx/vscode-mtalua/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Subtixx/vscode-mtalua.git"
+    },
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "tslint": "tslint -c tslint.json src/extension.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^6.0.40",
+        "@types/request": "^2.48.1",
+        "@types/xml2js": "^0.4.3",
+        "typescript": "^2.1.4",
+        "vscode": "^1.1.10"
+    },
+    "categories": [
+        "Programming Languages",
+        "Themes",
+        "Snippets"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.mta-start-resource",
+                "title": "Start Resource"
+            },
+            {
+                "command": "extension.mta-stop-resource",
+                "title": "Stop Resource"
+            },
+            {
+                "command": "extension.mta-restart-resource",
+                "title": "Restart Resource"
+            },
+            {
+                "command": "extension.mta-new-resource",
+                "title": "New MTA Resource"
+            },
+            {
+                "command": "extension.mta-new-meta",
+                "title": "New MTA Meta.xml file"
+            },
+            {
+                "command": "extension.mta-new-client",
+                "title": "New MTA Client file"
+            },
+            {
+                "command": "extension.mta-new-server",
+                "title": "New MTA Server file"
+            }
+        ],
+        "languages": [
+            {
+                "id": "mtalua",
+                "aliases": [
+                    "MTA Lua",
+                    "mtalua"
+                ],
+                "extensions": [
+                    ".lua"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "mtaluatypes",
+                "aliases": [],
+                "extensions": [
+                    ".luarioeughiuer"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "mtalua",
+                "scopeName": "source.lua",
+                "path": "./syntaxes/mtalua.tmLanguage.json"
+            },
+            {
+                "language": "mtaluatypes",
+                "scopeName": "source.luatypes",
+                "path": "./syntaxes/mtaluatypes.tmLanguage.json"
+            }
+        ],
+        "themes": [
+            {
+                "label": "Monokai MTA Lua",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Monokai-MTA-Edit.tmTheme"
+            },
+            {
+                "label": "Dark MTA Edit (Visual Studio)",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Dark-MTA-Edit.json"
+            }
+        ],
+        "snippets": [],
+        "configuration": {
+            "title": "MTA:SA Lua",
+            "properties": {
+                "mtalua-http.enabled": {
+                    "description": "Enable the WebAdmin Http Functionality",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-http.enable_restart_on_save": {
+                    "description": "Enable restarting resources on saving them",
+                    "type": "boolean",
+                    "default": false
+                },
+                "mtalua-http.enable_search_hinting": {
+                    "description": "Enable search hinting when restarting resources (Requires http whitelisting this ip)",
+                    "type": "boolean",
+                    "default": false
+                },
+
+                "mtalua-http.uri": {
+                    "description": "URL to the MTA Http Server",
+                    "type": "string",
+                    "default": "http://127.0.0.1:22005"
+                },
+                "mtalua-http.username": {
+                    "description": "Authentication username for the MTA Http Server",
+                    "type": "string",
+                    "default": "admin"
+                },
+                "mtalua-http.password": {
+                    "description": "Authentication password for the MTA Http Server",
+                    "type": "string",
+                    "default": "123456"
+                },
+
+                "mtalua-generate.author": {
+                    "description": "Allows you to set a custom author when generating new resources",
+                    "type": "string",
+                    "default": "VSCode MTA:SA Lua"
+                },
+                "mtalua-generate.watermarking": {
+                    "description": "Enable or disable watermarking of meta files",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.meta_default_version": {
+                    "description": "Default version when generating new resources",
+                    "type": "string",
+                    "default": "0.1.0"
+                },
+                "mtalua-generate.meta_default_type": {
+                    "description": "Default type of new resources",
+                    "type": "string",
+                    "default": "script",
+                    "enumDescriptions": [
+                        "Script",
+                        "GameMode",
+                        "Map",
+                        "Misc"
+                    ],
+                    "enum": [
+                        "script",
+                        "gamemode",
+                        "map",
+                        "misc"
+                    ]
+                },
+                "mtalua-generate.shared_prefix": {
+                    "description": "Custom suffix/prefix for shared files (Default is g_ prefix)",
+                    "type": "string",
+                    "default": "g_"
+                },
+                "mtalua-generate.shared_extension": {
+                    "description": "Custom extension for shared files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.shared_prefix_type": {
+                    "description": "If the shared is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.client_prefix": {
+                    "description": "Custom suffix/prefix for client files (Default is c_ prefix)",
+                    "type": "string",
+                    "default": "c_"
+                },
+                "mtalua-generate.client_extension": {
+                    "description": "Custom extension for client files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.client_prefix_type": {
+                    "description": "If the client is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.server_prefix": {
+                    "description": "Custom suffix/prefix for server files (Default is s_ prefix)",
+                    "type": "string",
+                    "default": "s_"
+                },
+                "mtalua-generate.server_extension": {
+                    "description": "Custom extension for server files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.server_prefix_type": {
+                    "description": "If the server is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.activate_client_file_generation": {
+                    "description": "When activated generates a client file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.activate_server_file_generation": {
+                    "description": "When activated generates a server file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.activate_shared_file_generation": {
+                    "description": "When activated generates a shared file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.default_client_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated client file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-generate.default_server_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated server file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-generate.default_shared_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated shared file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-generate.modify_meta": {
+                    "description": "When adding new client/server-side files should the meta.xml automagically be modified?",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.filesrc_extensions": {
+                    "description": "Extensions which are declated as <file>",
+                    "type": "array",
+                    "default": [
+                        ".png",
+                        ".jpg",
+                        ".mp3",
+                        ".wav",
+                        ".ttf",
+                        ".tif"
+                    ]
+                },
+                "mtalua-sense.activate_signature_help_parentheses": {
+                    "description": "Allows you to disable the signature help when using (",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-sense.activate_signature_help": {
+                    "description": "Allows you to disable the signature help completely",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-sense.show_relevant_only": {
+                    "description": "Only show relevant functions (A serverside script is open, only serverside & shared functions will show)",
+                    "type": "boolean",
+                    "default": false
+                },
+                "mtalua-sense.show_reference_links": {
+                    "description": "Make functions clickable which redirect directly to the MTA Wiki (BETA)",
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-start-resource",
+                    "group": "mtasa_lua@1"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-stop-resource",
+                    "group": "mtasa_lua@2"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-restart-resource",
+                    "group": "mtasa_lua@3"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-new-resource",
+                    "group": "mtasa_lua@4"
+                },
+                {
+                    "command": "extension.mta-new-meta",
+                    "group": "mtasa_lua@5"
+                },
+                {
+                    "command": "extension.mta-new-client",
+                    "group": "mtasa_lua@6"
+                },
+                {
+                    "command": "extension.mta-new-server",
+                    "group": "mtasa_lua@7"
+                }
+            ]
+        }
+    },
+    "dependencies": {
+        "xml2js": "^0.4.19",
+        "request": "^2.85.0"
+    }
+}

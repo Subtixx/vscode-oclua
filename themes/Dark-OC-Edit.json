@@ -1,0 +1,93 @@
+{
+    "$schema": "vscode://schemas/color-theme",
+    "name": "Dark OC Edit (Visual Studio)",
+    "include": "./dark_vs.json",
+    "tokenColors":[
+		{
+			"scope": "constant.language",
+			"settings": {
+				"foreground": "#4887bb"
+			}
+		},
+		{
+            "name": "Keyword",
+			"scope": "keyword.operator",
+			"settings": {
+				"foreground": "#4887bb"
+			}
+		},
+        {
+            "name": "Function Name",
+            "scope": "entity.name.function",
+            "settings": {
+                "foreground": "#DCDCAA"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function",
+            "settings": {
+                "foreground": "#4EC9B0"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function.any-method",
+            "settings": {
+                "foreground": "#DCDCAA"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "variable.other",
+            "settings": {
+                "foreground": "#9cdcfe"
+            }
+        },
+        {
+            "name": "Module",
+            "scope": "constant.other.module",
+            "settings": {
+                "foreground": "#4EC9B0"
+            }
+        },
+        {
+            "name": "MTA Client-Side Function",
+            "scope": "MTAClientFunction",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FF1e0a"
+            }
+        },
+        {
+            "name": "MTA Server-Side Function",
+            "scope": "MTAServerFunction",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FD971F"
+            }
+        },
+        {
+            "name": "MTA Shared Function",
+            "scope": "MTASharedFunction",
+            "settings": {
+                "foreground": "#0084ff"
+            }
+        },
+        {
+            "name": "MTA Deprecated Function",
+            "scope": "MTADeprecatedFunction",
+            "settings": {
+                "foreground": "#9cdcfe",
+                "fontStyle": "italic underline"
+            }
+        },
+        {
+            "name": "MTA Constant",
+            "scope": "MTAConstant",
+            "settings": {
+                "foreground": "#4EC9B0"
+            }
+        }
+    ]
+}
