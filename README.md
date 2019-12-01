@@ -35,7 +35,7 @@
 
 Code Completion shows what functions are available
 
-No image yet :/
+![Code Completion Preview](images/code-completion.gif)
 
 ## Syntax Highlighting
 
