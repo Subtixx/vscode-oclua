@@ -45,12 +45,15 @@ No image yet :/
 
 Easy way to access documentation
 
-No image yet :/
-
+![Document Links](images/doc-link.png)
 
 # Changelog
 
-## v0.1.0 (-)
+## v0.1.1 (12/01/2019)
+
+- Fixes Signature help provider
+
+## v0.1.0 (12/01/2019)
 
 - Initial Release
 

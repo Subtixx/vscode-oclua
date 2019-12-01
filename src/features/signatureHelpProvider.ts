@@ -5,12 +5,23 @@ import * as vscode from 'vscode';
 import { LuaFunction } from '../defs/defs';
 
 import { luaClasses, luaFunctions } from '../defs/lualibs';
+import { OpenComputerClassDefinitions } from '../defs/ocDefs';
 
 export class signatureProvider implements vscode.SignatureHelpProvider {
     functions: { [key: string]: LuaFunction };
 
     constructor(extensionPath: string) {
         this.functions = {};
+        
+        for(let i in OpenComputerClassDefinitions)
+        {
+            let itype = OpenComputerClassDefinitions[i];
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+                this.functions[itype.label + "." + jmethod.label] =  jmethod;
+            }
+        }
 
         this.addLuaLibs();
     }

@@ -2,7 +2,7 @@
 	"name": "opencomputerslua",
 	"displayName": "OpenComputersLua",
 	"description": "Adds opencomputers syntax highlighting and code completion",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "subtixx",
 	"license": "GPL v3.0",
 	"icon": "images/logo.png",
