@@ -10,6 +10,7 @@ import { FilesystemClassDefinition } from "./filesystem";
 import { UuidClassDefinition } from "./uuid";
 import { InternetClassDefinition } from "./internet";
 import { KeyboardClassDefinition } from "./keyboard";
+import { NoteClassDefinition } from "./note";
 
 export var OpenComputerDefinitions = new Array<LuaFunction>();
 export var OpenComputerClassDefinitions = new Array<LuaClass>();
@@ -37,3 +38,6 @@ OpenComputerClassDefinitions.push(InternetClassDefinition);
 
 //https://ocdoc.cil.li/api:keyboard
 OpenComputerClassDefinitions.push(KeyboardClassDefinition);
+
+//https://ocdoc.cil.li/api:note
+OpenComputerClassDefinitions.push(NoteClassDefinition);

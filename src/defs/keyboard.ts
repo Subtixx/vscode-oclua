@@ -17,7 +17,7 @@ tmpDef.args = [];
 tmpDef.returnType = "boolean";
 KeyboardClassDefinition.methods.push(tmpDef);
 
-tmpDef = new LuaMethod("isControl");
+tmpDef = new LuaMethod("iscontrol");
 tmpDef.description = "Checks if the specified character (from a keyboard event for example) is a control character as defined by Java's Character class. Control characters are usually not printable.";
 tmpDef.args = ["char"];
 tmpDef.returnType = "boolean";
