@@ -2,10 +2,10 @@
 import * as vscode from 'vscode';
 //import * as path from 'path';
 
-import { LuaFunction, LuaConst } from '../defs/defs';
+import { LuaConst } from '../defs/defs';
 
 import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
-import { OpenComputerDefinitions, OpenComputerClassDefinitions } from '../defs/ocDefs';
+import { OpenComputerClassDefinitions } from '../defs/ocDefs';
 
 export class functionProvider {
     functions: { [key: string]: vscode.CompletionItem[] };
