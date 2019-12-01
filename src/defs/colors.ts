@@ -15,7 +15,7 @@ tmpField = new LuaField("white", "Number: 0");
 ColorClassDefinition.fields.push(tmpField);
 tmpField = new LuaField("orange", "Number: 1");
 ColorClassDefinition.fields.push(tmpField);
-tmpField = new LuaField("magneta", "Number: 2");
+tmpField = new LuaField("magenta", "Number: 2");
 ColorClassDefinition.fields.push(tmpField);
 tmpField = new LuaField("lightblue", "Number: 3");
 ColorClassDefinition.fields.push(tmpField);

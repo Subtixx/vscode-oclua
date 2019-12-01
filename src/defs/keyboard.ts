@@ -15,28 +15,33 @@ tmpDef = new LuaMethod("isaltdown");
 tmpDef.description = "";
 tmpDef.args = [];
 tmpDef.returnType = "boolean";
+tmpDef.module = "keyboard";
 KeyboardClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaMethod("iscontrol");
 tmpDef.description = "Checks if the specified character (from a keyboard event for example) is a control character as defined by Java's Character class. Control characters are usually not printable.";
 tmpDef.args = ["char"];
 tmpDef.returnType = "boolean";
+tmpDef.module = "keyboard";
 KeyboardClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaMethod("iscontroldown");
 tmpDef.description = "Checks if one of the Control keys is currently being held by some user.";
 tmpDef.args = [];
 tmpDef.returnType = "boolean";
+tmpDef.module = "keyboard";
 KeyboardClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaMethod("iskeydown");
 tmpDef.description = "Checks if a specific key is currently being by some user. If a number is specified it is assumed it's a key code. If a string is specified it is assumed it's a single character, such as the ones passed by keyboard events.";
 tmpDef.args = ["charOrCode"];
 tmpDef.returnType = "boolean";
+tmpDef.module = "keyboard";
 KeyboardClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaMethod("isshiftdown");
 tmpDef.description = "Checks if one of the Shift keys is currently being held by some user.";
 tmpDef.args = [];
 tmpDef.returnType = "boolean";
+tmpDef.module = "keyboard";
 KeyboardClassDefinition.methods.push(tmpDef);
