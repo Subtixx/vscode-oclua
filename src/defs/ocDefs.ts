@@ -7,6 +7,9 @@ import { ColorClassDefinition } from "./colors";
 import { EventClassDefinition } from "./event";
 import { ComputerClassDefinition } from "./computer";
 import { FilesystemClassDefinition } from "./filesystem";
+import { UuidClassDefinition } from "./uuid";
+import { InternetClassDefinition } from "./internet";
+import { KeyboardClassDefinition } from "./keyboard";
 
 export var OpenComputerDefinitions = new Array<LuaFunction>();
 export var OpenComputerClassDefinitions = new Array<LuaClass>();
@@ -26,6 +29,11 @@ OpenComputerClassDefinitions.push(ComputerClassDefinition);
 //https://ocdoc.cil.li/api:filesystem
 OpenComputerClassDefinitions.push(FilesystemClassDefinition);
 
-/*let tmpDef : LuaFunction;
-let tmpClassDef : LuaClass;
-let tmpField : LuaField;*/
+//https://ocdoc.cil.li/api:uuid
+OpenComputerClassDefinitions.push(UuidClassDefinition);
+
+//https://ocdoc.cil.li/api:internet
+OpenComputerClassDefinitions.push(InternetClassDefinition);
+
+//https://ocdoc.cil.li/api:keyboard
+OpenComputerClassDefinitions.push(KeyboardClassDefinition);
