@@ -13,6 +13,13 @@ import { KeyboardClassDefinition } from "./keyboard";
 import { NoteClassDefinition } from "./note";
 import { ProcessClassDefinition } from "./process";
 import { RobotClassDefinition } from "./robot";
+import { SerializationClassDefinition } from "./serialization";
+import { ShellClassDefinition } from "./shell";
+import { SidesClassDefinition } from "./sides";
+import { TermClassDefinition } from "./term";
+import { TextClassDefinition } from "./text";
+import { TransformsClassDefinition } from "./transforms";
+import { UnicodeClassDefinition } from "./unicode";
 
 export var OpenComputerDefinitions = new Array<LuaFunction>();
 export var OpenComputerClassDefinitions = new Array<LuaClass>();
@@ -49,3 +56,24 @@ OpenComputerClassDefinitions.push(ProcessClassDefinition);
 
 //https://ocdoc.cil.li/api:robot
 OpenComputerClassDefinitions.push(RobotClassDefinition);
+
+//https://ocdoc.cil.li/api:serialization
+OpenComputerClassDefinitions.push(SerializationClassDefinition);
+
+//https://ocdoc.cil.li/api:shell
+OpenComputerClassDefinitions.push(ShellClassDefinition);
+
+//https://ocdoc.cil.li/api:sides
+OpenComputerClassDefinitions.push(SidesClassDefinition);
+
+//https://ocdoc.cil.li/api:term
+OpenComputerClassDefinitions.push(TermClassDefinition);
+
+//https://ocdoc.cil.li/api:text
+OpenComputerClassDefinitions.push(TextClassDefinition);
+
+//https://ocdoc.cil.li/api:transforms
+OpenComputerClassDefinitions.push(TransformsClassDefinition);
+
+//https://ocdoc.cil.li/api:unicode
+OpenComputerClassDefinitions.push(UnicodeClassDefinition);

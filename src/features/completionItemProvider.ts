@@ -9,16 +9,12 @@ import { OpenComputerClassDefinitions } from '../defs/ocDefs';
 
 export class functionProvider {
     functions: { [key: string]: vscode.CompletionItem[] };
-    clientGlobalTypes: vscode.CompletionItem[];
-    serverGlobalTypes: vscode.CompletionItem[];
 
     globalTypes: vscode.CompletionItem[];
 
     constructor(extensionPath: string) {
         this.functions = {};
         this.globalTypes = new Array<vscode.CompletionItem>();
-        this.clientGlobalTypes = new Array<vscode.CompletionItem>();
-        this.serverGlobalTypes = new Array<vscode.CompletionItem>();
 
         for (let i in OpenComputerClassDefinitions) {
             let itype = OpenComputerClassDefinitions[i];

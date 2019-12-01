@@ -68,7 +68,7 @@ export function generateSyntaxFields(): string {
             endStr += "|";
         j++;
     }
-    endStr += ")";
+    endStr += ")\\b(?=\\s*(?:[({\"']|\\[\\[))";
     return endStr;
 }
 

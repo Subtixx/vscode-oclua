@@ -1,0 +1,19 @@
+'use strict';
+
+import { LuaClass, LuaMethod } from "./defs";
+
+export var ClassDefinition : LuaClass;
+
+let tmpDef :LuaMethod;
+
+//https://ocdoc.cil.li/api:
+
+ClassDefinition = new LuaClass("");
+ClassDefinition.description = "";
+
+tmpDef = new LuaMethod("");
+tmpDef.description = "";
+tmpDef.args = [];
+tmpDef.returnType = "";
+tmpDef.module = ClassDefinition.label;
+ClassDefinition.methods.push(tmpDef);
