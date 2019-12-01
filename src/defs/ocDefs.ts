@@ -11,6 +11,8 @@ import { UuidClassDefinition } from "./uuid";
 import { InternetClassDefinition } from "./internet";
 import { KeyboardClassDefinition } from "./keyboard";
 import { NoteClassDefinition } from "./note";
+import { ProcessClassDefinition } from "./process";
+import { RobotClassDefinition } from "./robot";
 
 export var OpenComputerDefinitions = new Array<LuaFunction>();
 export var OpenComputerClassDefinitions = new Array<LuaClass>();
@@ -41,3 +43,9 @@ OpenComputerClassDefinitions.push(KeyboardClassDefinition);
 
 //https://ocdoc.cil.li/api:note
 OpenComputerClassDefinitions.push(NoteClassDefinition);
+
+//https://ocdoc.cil.li/api:process
+OpenComputerClassDefinitions.push(ProcessClassDefinition);
+
+//https://ocdoc.cil.li/api:robot
+OpenComputerClassDefinitions.push(RobotClassDefinition);
