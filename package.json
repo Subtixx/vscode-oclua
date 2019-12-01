@@ -2,20 +2,29 @@
 	"name": "opencomputerslua",
 	"displayName": "OpenComputersLua",
 	"description": "Adds opencomputers syntax highlighting and code completion",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"publisher": "subtixx",
 	"license": "GPL v3.0",
+	"icon": "images/logo.png",
 	"galleryBanner": {
 		"color": "#C80000",
 		"theme": "dark"
 	},
+	"homepage": "https://github.com/Subtixx/vscode-oclua/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/Subtixx/vscode-oclua/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Subtixx/vscode-oclua.git"
+	},
 	"engines": {
 		"vscode": "^1.40.0"
 	},
-        "activationEvents": [
+	"activationEvents": [
 		"*"
 	],
-    "main": "./out/extension",
+	"main": "./out/extension",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
