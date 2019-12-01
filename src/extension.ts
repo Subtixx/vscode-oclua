@@ -5,7 +5,7 @@ import { functionProvider } from './features/completionItemProvider';
 import { signatureProvider } from './features/signatureHelpProvider';
 import { hoverProvider } from './features/hoverProvider';
 import { documentLinkProvider } from './features/documentLinkProvider';
-import { generateSyntaxFields, generateSyntaxMethods, generateSampleFile } from './utils';
+//import { generateSyntaxFields, generateSyntaxMethods, generateSampleFile } from './utils';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log("OpenComputers LUA: Init");
@@ -18,9 +18,9 @@ export function activate(context: vscode.ExtensionContext) {
 	
 	vscode.languages.registerSignatureHelpProvider({ scheme: "file", language: "oclua" }, new signatureProvider(context.extensionPath), "(");
 
-	console.log(generateSyntaxFields());
+	/*console.log(generateSyntaxFields());
 	console.log(generateSyntaxMethods());
-	console.log(generateSampleFile());
+	console.log(generateSampleFile());*/
 }
 
 export function deactivate() {
