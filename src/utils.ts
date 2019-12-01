@@ -22,15 +22,18 @@ export function generateSyntaxMethods(): string {
     let endStr: string = "\\\\b(";
     for (let i in OpenComputerClassDefinitions) {
         let itype = OpenComputerClassDefinitions[i];
-        endStr += itype.label + "\\\\.("
-        for (let y in itype.methods) {
-            let ytype = itype.methods[y];
-            endStr += ytype.label;
-            if (itype.methods.indexOf(ytype) < itype.methods.length-1) {
-                endStr += "|";
+        if(itype.methods.length > 0)
+        {
+            endStr += itype.label + "\\\\.("
+            for (let y in itype.methods) {
+                let ytype = itype.methods[y];
+                endStr += ytype.label;
+                if (itype.methods.indexOf(ytype) < itype.methods.length-1) {
+                    endStr += "|";
+                }
             }
+            endStr += ")";
         }
-        endStr += ")";
 
         if(OpenComputerClassDefinitions.indexOf(itype) < OpenComputerClassDefinitions.length-1)
             endStr += "|";

@@ -83,17 +83,19 @@ tmpClass.methods.push(new LuaMethod("write"));
 luaClasses.push(tmpClass);
 
 tmpClass = new LuaClass("os");
-tmpClass.methods.push(new LuaMethod("clock"));
-tmpClass.methods.push(new LuaMethod("date"));
-tmpClass.methods.push(new LuaMethod("difftime"));
-tmpClass.methods.push(new LuaMethod("execute"));
-tmpClass.methods.push(new LuaMethod("exit"));
-tmpClass.methods.push(new LuaMethod("getenv"));
-tmpClass.methods.push(new LuaMethod("remove"));
-tmpClass.methods.push(new LuaMethod("rename"));
-tmpClass.methods.push(new LuaMethod("setlocale"));
-tmpClass.methods.push(new LuaMethod("time"));
-tmpClass.methods.push(new LuaMethod("tmpname"));
+tmpClass.methods.push(new LuaMethod("clock", "return the approximate CPU time, meaning the time the computer has actually been running in an executor thread. This is not the same as the time the computer has been running, for that see computer.uptime."));
+tmpClass.methods.push(new LuaMethod("date", "use ingame time and supports most formats."));
+//tmpClass.methods.push(new LuaMethod("difftime"));
+tmpClass.methods.push(new LuaMethod("execute", "start programs from a mounted filesystem via shell.execute. The specified string is parsed the same as commands entered in the shell."));
+tmpClass.methods.push(new LuaMethod("exit", "Throws an error to try and terminate the current coroutine"));
+//tmpClass.methods.push(new LuaMethod("getenv"));
+tmpClass.methods.push(new LuaMethod("setenv", "Set shell variables from Lua."));
+tmpClass.methods.push(new LuaMethod("remove", "Alias for filesystem.remove"));
+tmpClass.methods.push(new LuaMethod("rename", "Alias for filesystem.rename"));
+//tmpClass.methods.push(new LuaMethod("setlocale"));
+tmpClass.methods.push(new LuaMethod("time", "Returns the ingame time since the world has been created.\n*Note that this time is in “in-game seconds”.* To get the number of game ticks since the world was created, multiply it with 1000/60/60 (since there are 24000 ticks in a day) and subtract 6000. This offset of 6000 is not arbitrary, it ensures that 6 o'clock AM is actually that. Minecraft somehow thinks six o'clock in the morning is zero - probably because that's “when” a new game starts…"));
+tmpClass.methods.push(new LuaMethod("tmpname", "generate an unused name in the /tmp mount."));
+tmpClass.methods.push(new LuaMethod("sleep", "allows pausing a script for the specified amount of time. Note that signals will still be processed by event handlers while the sleep is active, i.e. you cannot pull signals that were accumulated during the sleep after it ended, since no signals will remain in the queue (or at least not all of them).", ["seconds"]));
 luaClasses.push(tmpClass);
 
 tmpClass = new LuaClass("package");
@@ -103,6 +105,11 @@ tmpClass.methods.push(new LuaMethod("loadlib"));
 tmpClass.methods.push(new LuaMethod("path"));
 tmpClass.methods.push(new LuaMethod("preload"));
 tmpClass.methods.push(new LuaMethod("seeall"));
+luaClasses.push(tmpClass);
+
+tmpClass = new LuaClass("debug");
+tmpClass.methods.push(new LuaMethod("traceback"));
+tmpClass.methods.push(new LuaMethod("getinfo"));
 luaClasses.push(tmpClass);
 
 luaFunctions.push(new LuaMethod("assert"));
