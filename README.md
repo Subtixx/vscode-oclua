@@ -39,7 +39,7 @@ No image yet :/
 
 ## Syntax Highlighting
 
-No image yet :/
+![Syntax Highlight Preview](images/syntax-highlight.png)
 
 ## Reference Link Provider
 
