@@ -1,6 +1,6 @@
 'use scrict';
 
-import { LuaFunction, LuaClass, LuaField } from "./defs";
+import { LuaFunction, LuaClass } from "./defs";
 
 import { ComponentClassDefinition } from "./component";
 import { ColorClassDefinition } from "./colors";

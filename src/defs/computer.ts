@@ -1,6 +1,6 @@
 'use strict';
 
-import { LuaClass, LuaField, LuaMethod } from "./defs";
+import { LuaClass, LuaMethod } from "./defs";
 
 export var ComputerClassDefinition : LuaClass;
 

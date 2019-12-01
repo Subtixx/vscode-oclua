@@ -60,6 +60,7 @@ tmpDef.argDescs = {};
 tmpDef.argDescs["event"] = "name of the signal to listen to.";
 tmpDef.argDescs["callback"] = "the function to call if this signal is received. The function will receive the event name it was registered for as first parameter, then all remaining parameters as defined by the signal that caused the event.";
 tmpDef.returnType = "number";
+EventClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaFunction();
 tmpDef.module = "event";
@@ -70,6 +71,7 @@ tmpDef.argDescs = {};
 tmpDef.argDescs["event"] = "name of the signal to unregister.";
 tmpDef.argDescs["callback"] = "the function that was used to register for this event.";
 tmpDef.returnType = "boolean"; // true if the event was successfully unregistered, false if this function was not registered for this event type.
+EventClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaFunction();
 tmpDef.module = "event";
@@ -81,6 +83,7 @@ tmpDef.argDescs["event"] = "time in seconds between each invocation of the callb
 tmpDef.argDescs["callback"] = "the function to call.";
 tmpDef.argDescs["[, times]"] = "OPTIONAL: how many times the function will be called. If omitted the function will be called once. Pass math.huge for infinite repeat.";
 tmpDef.returnType = "number"; // a timer ID that can be used to cancel the timer at any time.
+EventClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaFunction();
 tmpDef.module = "event";
@@ -90,6 +93,7 @@ tmpDef.args = ["timerID"];
 tmpDef.argDescs = {};
 tmpDef.argDescs["timerId"] = "a timer ID as returned by event.timer.";
 tmpDef.returnType = "boolean"; // true if the timer was stopped, false if there was no timer with the specified ID.
+EventClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaFunction();
 tmpDef.module = "event";
@@ -101,6 +105,7 @@ tmpDef.argDescs["[timeout]"] = "if passed the function will wait for a new event
 tmpDef.argDescs["[name]"] = "an event pattern that will act as a filter. If given then only events that match this pattern will be returned. Can be nil in which case the event names will not be filtered. See string.match on how to use patterns.";
 tmpDef.argDescs["..."] = "any number of parameters in the same order as defined by the signal that is expected. Those arguments will act as filters for the additional arguments returned by the signal. Direct equality is used to determine if the argument is equal to the given filter. Can be nil in which case this particular argument will not be filtered.";
 tmpDef.returnType = "string, ..."; // true if the timer was stopped, false if there was no timer with the specified ID.
+EventClassDefinition.methods.push(tmpDef);
 
 tmpDef = new LuaFunction();
 tmpDef.module = "event";
@@ -111,3 +116,4 @@ tmpDef.argDescs = {};
 tmpDef.argDescs["[timeout]"] = "if passed the function will wait for a new event for this many seconds at maximum then returns nil if no event was queued during that time.";
 tmpDef.argDescs["[filter]"] = "if passed the function will use it as a filtering function of events. Allows for advanced filtering. ";
 tmpDef.returnType = "string, ..."; // true if the timer was stopped, false if there was no timer with the specified ID.
+EventClassDefinition.methods.push(tmpDef);

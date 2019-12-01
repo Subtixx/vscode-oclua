@@ -6,5 +6,13 @@ if(t == nil) then
 end
 
 event.pull();
-event.register();
 event.listen();
+event.listen();
+event.listen();
+event.listen();
+event.listen();
+event.listen();
+computer
+colors
+
+colors.blue

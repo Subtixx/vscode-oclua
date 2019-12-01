@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 
 import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
+import { OpenComputerClassDefinitions } from '../defs/ocDefs';
 
 export class hoverProvider implements vscode.HoverProvider {
     functions: { [key: string]: vscode.MarkdownString };
@@ -11,6 +12,24 @@ export class hoverProvider implements vscode.HoverProvider {
         this.functions = {};
 
         this.addLuaLibs();
+
+        for(let i in OpenComputerClassDefinitions)
+        {
+            let itype = OpenComputerClassDefinitions[i];
+            
+            this.functions[itype.label] = itype.toMarkdown();
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+                this.functions[itype.label + "." + jmethod.label] =  jmethod.toMarkdown();
+            }
+            
+            for(let j in itype.fields)
+            {
+                let jfield = itype.fields[j];
+                this.functions[itype.label + "." + jfield.label] = jfield.toMarkdown();
+            }
+        }
     }
     
     addLuaLibs()
